@@ -2,3 +2,6 @@
 .settings
 *.class
 bin
+target
+.idea
+.git

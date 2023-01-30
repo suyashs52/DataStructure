@@ -1,0 +1,36 @@
+dp: optimal substructure: need to find sortest path between delhi to mumbai and road passed throgh patiyala
+    first find sortes distance between delhi to patiyala, greedy.
+    finding flight min rate between two station is not optimal substructure,even this involved stops in sub station
+    not necessary means rate ll be min
+
+dp is to optimized recursive solutions in efficient way of memory and time
+
+    Overlapping subproblem: each subproblem not solve only once,recursive function called with exactly same parameter
+        more than once , fibanocci number , so for f(4) we ll check f(3)+f(2) , also for f(5) so store f(3) value in
+        memoization,for loop we can solve it in O(n) with recursive because of overlappting it ll take exponent time,
+        minimum cost to go to station n-1 from 0,
+        defined as
+        minCost (0, N-1)       = MIN ( cost [0] [n-1),       cost (0] (1) + minCost (1, N-1),
+                 minCost(0, 2) + minCost (2, N-1),        minCost (0, N-2) + cost [N-2,n-1)
+        second option is to break at station 1 and caluclate mincost(0,i) ,(i,n-1)
+
+    Sparse Array: when 2 d matrix has 0 or any other constant and storing these element is ineficient for storage
+        and computation ,then i can call interview to say store non empty cell in array and dont store 0/constant value
+
+    Memoization:  store the subproblem solution in cache if first time solved and later return it from cache
+        min cost to go to to station has 2 d array array[source][destination]=mincost
+            top down approach,
+            top down start from n> go down by recursive call, store the value at last
+            understand the destination early and develop to require to reach their
+            preorder binary print top down approach
+    Bottom Up approach: solve for bottom,go upwards ,no recursive function call
+        longest substring having first half and second half sum equal , from all index any string can start
+        can move to any last index so 2d array
+        for(i=0;i<n;i++) for(int j=i+1;j<n;j+=2)  for(k=0;k<len/2;k++)
+        can be solved using 2d sum[i][j] store sum from i to j index
+        start from 1 and solve for n later store result in array
+
+     Resursion if we add momoization is top down , bottom up is dynamic programming we start from basic
+     in bottom up we need to solve all problem untill n in top down don't need to solve all the problems
+     If nand mare very big values then recursion may actually beat DP, both i ntermso fume and memory.
+
