@@ -3,6 +3,7 @@ package dp.codechef;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class SUBINC {
@@ -13,10 +14,10 @@ public class SUBINC {
 
             while (testCase-- > 0){
                 int size=fs.nextInt();
-                int [] arr=new int[size];
+                long [] arr=new long[size];
 
                 for (int i = 0; i < size; i++) {
-                    arr[i]=fs.nextInt();
+                    arr[i]=fs.nextLong();
                 }
         /*
 2
@@ -25,8 +26,47 @@ public class SUBINC {
 1
 5
          */
-                nonDesceasingArray_rec(arr);
+              //  nonDesceasingArray_rec(arr);
+
+               // dp(arr);
+                System.out.println(array_o_n(arr));
             }
+    }
+
+    private static int dp(int[] arr) {
+
+        //size starting from index
+
+        int max=arr.length;
+
+        for(int i=0;i<arr.length;i++){
+            int size=1;
+            for(int j=i+1;j<arr.length;j++){
+                    if(arr[j]>arr[j-1]){
+                        size++;
+                    }
+            }
+        }
+
+        return  max;
+
+    }
+
+    private static long array_o_n(long[] arr){
+        long ans=1;
+        long[] dp=new long[arr.length];
+        dp[0]=1;
+        for(int i=1;i<arr.length;i++){
+            dp[i]=1;
+            if(arr[i]>=arr[i-1]){
+                dp[i]+=dp[i-1];
+               // ans++;
+            }
+            ans+=dp[i];
+        }
+
+
+        return ans;
     }
 
     private static void nonDesceasingArray_rec(int[] arr) {
