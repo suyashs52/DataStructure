@@ -91,6 +91,7 @@ public class SUBINC {
         System.out.println(count);
     }
 
+
     static class FastScanner {
          BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer("");
